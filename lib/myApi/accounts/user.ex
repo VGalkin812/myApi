@@ -4,6 +4,9 @@ defmodule MyApi.Accounts.User do
   alias MyApi.Accounts.User
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
+  @required_fields ~w(login name password)a
+  @optional_fields ~w()a
+
   schema "users" do
     field :login, :string
     field :name, :string
@@ -17,11 +20,8 @@ defmodule MyApi.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    # Remove hash, add pw + pw confirmation
-    |> cast(attrs, [:login, :password, :name])
-    # Remove hash, add pw + pw confirmation
-    |> validate_required([:login, :password, :name])
-    # Check that password length is >= 8
+    |> cast(attrs, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
     |> validate_length(:password, min: 6)
     |> unique_constraint(:login)
     |> put_password_hash
