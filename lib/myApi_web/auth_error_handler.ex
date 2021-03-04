@@ -1,8 +1,7 @@
 defmodule MyApi.AuthErrorHandler do
   import Plug.Conn
 
-
-      @moduledoc """
+  @moduledoc """
   AuthErrorHandler
   """
 

@@ -1,7 +1,7 @@
 defmodule MyApi.Guardian do
   use Guardian, otp_app: :myApi
 
-      @moduledoc """
+  @moduledoc """
   Guardian
   """
 

@@ -2,7 +2,7 @@ defmodule MyApiWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
-    @moduledoc """
+  @moduledoc """
   Telemetry
   """
   def start_link(arg) do

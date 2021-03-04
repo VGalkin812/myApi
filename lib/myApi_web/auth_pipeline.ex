@@ -4,7 +4,7 @@ defmodule MyApi.Guardian.AuthPipeline do
     module: MyApi.Guardian,
     error_handler: MyApi.AuthErrorHandler
 
-      @moduledoc """
+  @moduledoc """
   AuthPipeline
   """
 
