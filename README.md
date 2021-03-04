@@ -216,9 +216,19 @@ http://localhost:8000/api/v1/list_users
 
 URL: 
 
-localhost:8000/api/v1/by_id?id=1
+localhost:8000/api/v1/by_id
 
-*Параметр id принимает id пользователя*
+Запрос принимает объект следущего вида:
+
+``` json
+// POST
+
+{
+
+    "id": "72"
+
+}
+```
 
 На выходе:
 
