@@ -225,7 +225,7 @@ localhost:8000/api/v1/by_id
 
 {
 
-    "id": "1"
+    "id": "id"
 
 }
 ```
