@@ -9,7 +9,6 @@ defmodule MyApi.Accounts do
   alias MyApi.Accounts.User
 
   alias MyApi.Guardian
-  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   def token_sign_in(login, password) do
     case login_password_auth(login, password) do
@@ -29,7 +28,7 @@ defmodule MyApi.Accounts do
   defp get_by_login(login) when is_binary(login) do
     case Repo.get_by(User, login: login) do
       nil ->
-        dummy_checkpw()
+        Argon2.no_user_verify()
         {:error, "Login error."}
 
       user ->
@@ -38,7 +37,7 @@ defmodule MyApi.Accounts do
   end
 
   defp verify_password(password, %User{} = user) when is_binary(password) do
-    if checkpw(password, user.password_hash) do
+    if Argon2.check_pass(password, user.password_hash) do
       {:ok, user}
     else
       {:error, :invalid_password}
