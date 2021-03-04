@@ -4,6 +4,11 @@ defmodule MyApi.Accounts.User do
   alias MyApi.Accounts.User
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
+
+        @moduledoc """
+  user schema, password hash
+  """
+
   @required_fields ~w(login name password)a
   @optional_fields ~w()a
 

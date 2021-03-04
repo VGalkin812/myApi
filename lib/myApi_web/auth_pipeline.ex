@@ -4,6 +4,10 @@ defmodule MyApi.Guardian.AuthPipeline do
     module: MyApi.Guardian,
     error_handler: MyApi.AuthErrorHandler
 
+      @moduledoc """
+  AuthPipeline
+  """
+
   plug Guardian.Plug.VerifyHeader, realm: "Bearer"
   plug Guardian.Plug.EnsureAuthenticated
   plug Guardian.Plug.LoadResource

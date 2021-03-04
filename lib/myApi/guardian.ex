@@ -1,6 +1,10 @@
 defmodule MyApi.Guardian do
   use Guardian, otp_app: :myApi
 
+      @moduledoc """
+  Guardian
+  """
+
   def subject_for_token(user, _claims) do
     sub = to_string(user.id)
     {:ok, sub}
